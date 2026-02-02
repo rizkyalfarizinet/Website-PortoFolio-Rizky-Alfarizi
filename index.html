@@ -1,0 +1,813 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-AlfariziNet | Portofolio TJKT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* VARIABEL & RESET */
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --secondary: #0F172A;
+            --accent: #00FF00;
+            --text: #1E293B;
+            --text-light: #64748B;
+            --background: #FFFFFF;
+            --background-alt: #F8FAFC;
+            --border: #E2E8F0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* HEADER & NAVIGATION */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--background-alt) 0%, var(--background) 100%);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* ABOUT SECTION */
+        .about-container {
+            background: var(--background-alt);
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .mission-statement, .education {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .edu-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .year {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* PURPOSE SECTION */
+        .purpose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .purpose-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .purpose-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .purpose-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* SKILLS SECTION */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-level {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .level-bar {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* PROJECTS SECTION */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .project-tag {
+            background: var(--background-alt);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* CONTACT SECTION */
+        .contact-container {
+            background: var(--background-alt);
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            min-width: 40px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* CLOSING SECTION */
+        .closing-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .closing-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--text-light);
+        }
+
+        .signature {
+            margin-top: 2rem;
+        }
+
+        .signature-img {
+            height: 60px;
+            margin: 1rem 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 2rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 1.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="navbar container">
+            <div class="nav-brand">
+                <span class="logo">R-AlfariziNet</span>
+                <span class="subtitle">TJKT Specialist & Content Creator</span>
+            </div>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Halo, Saya <span class="highlight">Rizky Alfarizi</span></h1>
+                <p>Content Creator & Student TJKT</p>
+                <p>Berbagi ilmu seputar Jaringan Komputer, Pemrograman, dan Teknologi</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">Lihat Projek Saya</a>
+                    <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images11/profile-rizky.jpg.jpg" alt="Rizky Alfarizi" id="profile-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="intro-text">Saya adalah pelajar <strong>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</strong> yang passionate tentang dunia jaringan, cybersecurity, dan pengembangan konten edukasi teknologi.</p>
+                        
+                        <div class="mission-statement">
+                            <h3>Misi & Visi</h3>
+                            <p>Saya percaya bahwa teknologi jaringan merupakan tulang punggung transformasi digital Indonesia. Melalui portofolio ini, saya ingin mendokumentasikan perjalanan belajar sekaligus membagikan pengetahuan kepada komunitas TI Indonesia.</p>
+                        </div>
+
+                        <div class="education">
+                            <h3>Pendidikan</h3>
+                            <div class="edu-item">
+                            <center>  
+                            <img src="images11/SACI.png"  width="150" height="150" alt="Foto SACI">
+                            <li><a href="https://smkn1cihampelas.sch.id"><h4>SMKN 1 CIHAMPELAS</h4></a></li>
+                            <img src="images11/tkj.png"  width="150" height="150" alt="Foto tkj" />
+                            <li><a href="https://smkn1cihampelas.sch.id/programs/tkj/>"><h4>Jurusan TJKT (Teknik Jaringan Komputer dan Telekomunikasi)</h4></a></li>
+                            </center>
+                            </div>
+              <body>
+  <header class="header">
+    <div class="container navbar">
+      <div class="brand">
+        <a href="index.html" class="logo">R-AlfariziNet</a>
+        <div class="tagline">Perkenalan & Portofolio</div>
+      </div>
+
+      <button id="menuToggle2" class="menu-toggle" aria-label="toggle menu">☰</button>
+
+      <nav>
+        <ul id="navMenu2" class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="https://drive.google.com/file/d/1wBr_dZ6Bi1nv1rW9VxHJrLx1p4dipc4s/view?usp=sharing.html">About Me</a></li>
+          <li><a href="moduls.html">Moduls</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+      <div class="about-grid">
+        <div class="about-photo">
+        <center>  <img src="images11/profile-rizky-2.jpg"  width="350" height="350" alt="Foto Rizky" /></center>
+    </div>
+    
+
+        <div class="about-text">
+          <h3>Halo — Saya Rizky Alfarizi (R-Alfarizi_Net)</h3>
+          <p>Saya adalah siswa SMKN 1 Cihampelas, jurusan <strong>Teknik Jaringan Komputer dan Telekomunikasi (TJKT 2)</strong>. Saya membuat website ini sebagai digital portfolio untuk mendokumentasikan perjalanan belajar saya — catatan, tugas, dan proyek yang dikerjakan selama belajar di jurusan TJKT.</p>
+
+          <h4>Tujuan</h4>
+          <ul>
+            <li>Mendokumentasikan proses pembelajaran.</li>
+            <li>Menunjukkan perkembangan kemampuan di bidang jaringan dan teknologi.</li>
+            <li>Memberi bukti nyata ketika melamar kerja/magang.</li>
+            <li>Menjadi sumber inspirasi bagi teman yang sedang belajar teknologi.</li>
+          </ul>
+<br>
+          <h4>Motto & Filosofi</h4>
+          <p><em>"Belajar tidak pernah berhenti, karena setiap hari selalu ada ilmu baru yang membawa kita lebih dekat pada impian."</em></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+ <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills <span class="highlight">Me</span></h2>
+            
+            <div class="skills-container">
+                <div class="skills-content">
+                    <div class="skills-text">
+                        <p class="intro-text">Skills yang sudah saya pelajari <strong>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</strong> Window, Cisco Packet Tracer, Linux Debian, Mikrotik, dan HTML CSS</p>
+                        
+                        <div class="mission-statement">
+                            <h3>Pembelajaran Bersama Guru Produktif</h3>
+                            <p>Pak Rahmat(ASJ), Pak Abdu(PKPJ), Pak Lalan(TJKN), Pak Day(KJ), dan Pak Syahrul(PW)</p>
+                        </div>
+
+                        <div class="education">
+                            <h3>Tempat Belajar</h3>
+                            <div class="edu-item">
+                                <h4>Lab 1 atau Lab 2 SMKN 1 CIHAMPELAS</h4>
+                                <p>atau ruangan kelas ketika Lab sedang di pakai </p>
+
+                         <div class="education">
+                            <h3>Mood Belajar</h3>
+                            <div class="edu-item">
+                                <h4>Senang, bahagia, tengang, serius, tenang, selalu semangat, dan kadang juga lemas karna belum ada MBG </h4>
+                                <p>Mood belajar saya sangat dipengaruhi oleh guru yang sedang mengajar.</p>
+                                <p>Saat belajar bersama Pak Rahmat, suasana belajar selalu terasa menyenangkan dan membahagiakan. Saya jadi lebih serius memperhatikan pelajaran, apalagi ketika ada kuis.</p>
+                                <p>Ketika belajar dengan Pak Abdu, suasana kelas cenderung santai dan penuh canda. Pembelajarannya tetap menyenangkan, tetapi sering diwarnai tawa karena pembawaan beliau dan hal-hal random yang terjadi di kelas. </p>
+                                <p>Bersama Pak Lalan, suasana belajar selalu serius dan fokus. Kelas terasa hening karena metode pembelajaran beliau yang tegas, cerdas, dan menuntut konsentrasi penuh.</p>
+                                <p>Saat diajar oleh Pak Day, suasana pembelajaran sangat santai dan nyaman. Beliau suka bercanda, lucu, serta sering memberikan waktu istirahat, sehingga kelas terasa lebih rileks karena kebaikan dan sikap beliau.</p>
+                                <p>Sementara itu, bersama Pak Syahrul, suasana pembelajaran cukup santai dan diselingi candaan, namun tetap menuntut kedisiplinan, terutama dalam hal manajemen waktu.</p>
+                                </div>
+
+   <body>
+      <button id="menuToggle4" class="menu-toggle" aria-label="toggle menu">☰</button>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h2 class="section-title">Contact</h2>
+      <p>Ingin berkolaborasi atau bertanya? Isi form di bawah atau hubungi langsung lewat email / WA.</p>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="contact-form">
+          <div class="form-row">
+            <label for="name">Nama</label>
+            <input id="name" name="name" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="form-row">
+            <label for="message">Pesan</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <div class="form-row">
+            <button type="submit" class="btn submit-btn">Kirim Pesan</button>
+          </div>
+          <div id="formMessage" class="form-message" aria-live="polite"></div>
+        </form>
+
+        <aside class="contact-info">
+          <h4>Kontak Langsung</h4>
+          <p>Email: <a href="mailto:rizkyalfarizinet679@gmail.com">rizkyalfarizinet679@gmail.com</a></p>
+          <p>WhatsApp: 083299046472</p>
+          <p>Instagram: @rizkyalfarizinetwork</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year4"></span> R-Alfarizi_Net</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>                             

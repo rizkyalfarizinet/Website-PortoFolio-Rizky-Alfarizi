@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pembelajaran TJKT - R-AlfariziNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* VARIABEL & STYLING MODUL */
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --windows-color: #0078D7;
+            --cisco-color: #049FD9;
+            --mikrotik-color: #FF0000;
+            --linux-color: #FCC624;
+            --pw-color: #38B2AC;
+            --hardware-color: #805AD5;
+            --custom-color: #319795;
+            --text: #1E293B;
+            --text-light: #64748B;
+            --background: #FFFFFF;
+            --background-alt: #F8FAFC;
+            --border: #E2E8F0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        .learning-modules {
+            padding: 5rem 0;
+            background: var(--background-alt);
+        }
+
+        .modules-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .modules-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-header {
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .windows-header { background: var(--windows-color); }
+        .cisco-header { background: var(--cisco-color); }
+        .mikrotik-header { background: var(--mikrotik-color); }
+        .linux-header { background: var(--linux-color); color: var(--text); }
+        .pw-header { background: var(--pw-color); }
+        .hardware-header { background: var(--hardware-color); }
+        .custom-header { background: var(--custom-color); }
+
+        .module-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .module-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .module-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .module-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .module-lessons {
+            margin-bottom: 1.5rem;
+        }
+
+        .lesson-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lesson-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lesson-item:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-number {
+            background: var(--background-alt);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .module-actions {
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-module {
+            width: 100%;
+            text-align: center;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .windows-progress { background: var(--windows-color); width: 20%; }
+        .cisco-progress { background: var(--cisco-color); width: 35%; }
+        .mikrotik-progress { background: var(--mikrotik-color); width: 10%; }
+        .linux-progress { background: var(--linux-color); width: 25%; }
+        .pw-progress { background: var(--pw-color); width: 40%; }
+        .hardware-progress { background: var(--hardware-color); width: 15%; }
+        .custom-progress { background: var(--custom-color); width: 5%; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .module-stats {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<button><a href="index.html">Kembali ke halaman sebelumnya</a></button>
+    <section class="learning-modules">
+        <div class="modules-container">
+            <h2 class="section-title">Modul <span class="highlight">Pembelajaran</span></h2>
+            
+            <div class="modules-intro">
+                <p>Selamat datang di pusat pembelajaran TJKT! Di sini Anda dapat mempelajari berbagai materi teknologi jaringan dan komputer melalui modul-modul yang telah disusun secara sistematis. Pilih kategori yang ingin Anda pelajari dan mulai perjalanan belajar Anda!</p>
+            </div>
+
+            <div class="modules-grid">
+                <!-- WINDOWS MODULE -->
+                <div class="module-card">
+                    <div class="module-header windows-header">
+                        <div class="module-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h3 class="module-title">Windows</h3>
+                    </div>
+                    <div class="module-content">
+                        <p class="module-description">Pelajari administrasi sistem Windows, konfigurasi server, dan troubleshooting.</p>
+                        
+                        <div class="module-stats">
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span>6 Modul</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>15 Jam</span>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill windows-progress"></div>
+                        </div>
+                        <div class="progress-text">20% Complete</div>
+                        
+                        <div class="module-lessons">
+                            <h4>Materi Pembelajaran:</h4>
+                            <ul class="lesson-list">
+                                <li class="lesson-item">
+                                    <span class="lesson-number">1</span>
+                                    <span>Installasi Windows Server</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">2</span>
+                                    <span>Konfigurasi Active Directory</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">3</span>
+                                    <span>DNS dan DHCP Server</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">4</span>
+                                    <span>File Sharing dan Permission</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="module-actions">
+                            <a href="#windows-modules" class="btn btn-module">Mulai Belajar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CISCO PACKET TRACER MODULE -->
+                <div class="module-card">
+                    <div class="module-header cisco-header">
+                        <div class="module-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="module-title">Cisco PT</h3>
+                    </div>
+                    <div class="module-content">
+                        <p class="module-description">Simulasi jaringan komputer dengan Cisco Packet Tracer dari dasar hingga advanced.</p>
+                        
+                        <div class="module-stats">
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span>8 Modul</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>20 Jam</span>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill cisco-progress"></div>
+                        </div>
+                        <div class="progress-text">35% Complete</div>
+                        
+                        <div class="module-lessons">
+                            <h4>Materi Pembelajaran:</h4>
+                            <ul class="lesson-list">
+                                <li class="lesson-item">
+                                    <span class="lesson-number">1</span>
+                                    <span>Pengenalan Cisco PT</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">2</span>
+                                    <span>Basic Network Topology</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">3</span>
+                                    <span>Konfigurasi Router & Switch</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">4</span>
+                                    <span>VLAN Configuration</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="module-actions">
+                            <a href="#cisco-modules" class="btn btn-module">Mulai Belajar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MIKROTIK MODULE -->
+                <div class="module-card">
+                    <div class="module-header mikrotik-header">
+                        <div class="module-icon">
+                            <i class="fas fa-router"></i>
+                        </div>
+                        <h3 class="module-title">MikroTik</h3>
+                    </div>
+                    <div class="module-content">
+                        <p class="module-description">Konfigurasi router MikroTik untuk jaringan kecil hingga enterprise.</p>
+                        
+                        <div class="module-stats">
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span>5 Modul</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Jam</span>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill mikrotik-progress"></div>
+                        </div>
+                        <div class="progress-text">10% Complete</div>
+                        
+                        <div class="module-lessons">
+                            <h4>Materi Pembelajaran:</h4>
+                            <ul class="lesson-list">
+                                <li class="lesson-item">
+                                    <span class="lesson-number">1</span>
+                                    <span>Pengenalan MikroTik OS</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">2</span>
+                                    <span>Basic Router Configuration</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">3</span>
+                                    <span>Firewall dan NAT</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">4</span>
+                                    <span>Bandwidth Management</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="module-actions">
+                            <a href="#mikrotik-modules" class="btn btn-module">Mulai Belajar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LINUX DEBIAN MODULE -->
+                <div class="module-card">
+                    <div class="module-header linux-header">
+                        <div class="module-icon">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <h3 class="module-title">Linux Debian</h3>
+                    </div>
+                    <div class="module-content">
+                        <p class="module-description">Administrasi sistem Linux Debian untuk server dan jaringan.</p>
+                        
+                        <div class="module-stats">
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span>7 Modul</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>18 Jam</span>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill linux-progress"></div>
+                        </div>
+                        <div class="progress-text">25% Complete</div>
+                        
+                        <div class="module-lessons">
+                            <h4>Materi Pembelajaran:</h4>
+                            <ul class="lesson-list">
+                                <li class="lesson-item">
+                                    <span class="lesson-number">1</span>
+                                    <span>Installasi Debian Server</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">2</span>
+                                    <span>Command Line Basics</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">3</span>
+                                    <span>User & Permission Management</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">4</span>
+                                    <span>Network Configuration</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="module-actions">
+                            <a href="#linux-modules" class="btn btn-module">Mulai Belajar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PEMROGRAMAN WEB MODULE -->
+                <div class="module-card">
+                    <div class="module-header pw-header">
+                        <div class="module-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="module-title">Pemrograman Web</h3>
+                    </div>
+                    <div class="module-content">
+                        <p class="module-description">Belajar membuat website dari dasar dengan HTML, CSS, JavaScript dan PHP.</p> 
+                        <div class="progress-bar"> <div class="module-stats">
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span>10 Modul</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>25 Jam</span>
+                            </div>
+                        </div>
+                            <div class="progress-fill pw-progress"></div>
+                        </div>
+                        <div class="progress-text">40% Complete</div>
+                        
+                        <div class="module-lessons">
+                            <h4>Materi Pembelajaran:</h4>
+                            <ul class="lesson-list">
+                                <li class="lesson-item">
+                                    <span class="lesson-number">1</span>
+                                    <span>HTML Dasar</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">2</span>
+                                    <span>CSS Styling</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">3</span>
+                                    <span>JavaScript Fundamentals</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">4</span>
+                                    <span>PHP & Database</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="module-actions">
+                            <a href="#pw-modules" class="btn btn-module">Mulai Belajar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HARDWARE MODULE -->
+                <div class="module-card">
+                    <div class="module-header hardware-header">
+                        <div class="module-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="module-title">Hardware</h3>
+                    </div>
+                    <div class="module-content">
+                        <p class="module-description">Belajar mengenal hardware dan fungsinya 
+                    <div class="progress-bar"> <div class="module-stats">
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span></span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>25 Jam</span>
+                            </div>
+                            
+                        </div>
+                            <div class="progress-fill pw-progress"></div>
+                        </div>
+                        <div class="progress-text"></div>
+                        </div>
+                        <div class="module-lessons">
+                            <h4>Materi Pembelajaran:</h4>
+                            <ul class="lesson-list">
+                                <li class="lesson-item">
+                                    <span class="lesson-number">1</span>
+                                    <span>Komponen Hardware</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">2</span>
+                                    <span>Sering di gunakan di sekolah</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">3</span>
+                                    <span>Sering di gunakan di perkantoran</span>
+                                </li>
+                                <li class="lesson-item">
+                                    <span class="lesson-number">4</span>
+                                    <span>Sering di gunakan di rumah</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="module-actions">
+                            <a href="#pw-modules" class="btn btn-module">Mulai Belajar</a>
+                        </div>
+                    </div>
+                </div>
