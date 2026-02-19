@@ -26,21 +26,32 @@ section{
     border-radius:10px;
     margin-bottom:20px;
 }
-a{
-    display:inline-block;
-    margin-top:20px;
-    text-decoration:none;
-    background:#2563EB;
-    color:white;
-    padding:12px 20px;
-    border-radius:8px;
+
+.link-modul{
+color:#1a73e8;
+text-decoration:none;
+font-weight:600;
 }
- .grid {
-         display: grid;
-         gap: 16px;
-         grid-template-columns: repeat(
-          auto-fit, minmax(200px, 1fr));
-        }
+
+.link-modul:hover{
+text-decoration:underline;
+}
+
+.btn-kembali{
+display:inline-block;
+background:#2d5be3;
+color:white;
+padding:14px 25px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+}
+
+.btn-kembali:hover{
+background:#1f47c7;
+}
+
+
 </style>
 </head>
 
@@ -64,16 +75,19 @@ a{
 <div class="box">
 <h3>Topik Pembelajaran</h3>
 <ol>
-<li>Pengenalan MikroTik OS</li>
-<li>Basic Router Configuration</li>
-<li>Firewall dan NAT</li>
-<li>Bandwidth Management</li>
+<h3>LAB 1</h3>
+<li>Introduction/Pengenalan Mikrotik</li><br>
+<li>Install Mikrotik pada Virtualbox</li><br>
+<li><a href="modul-mikrotik-virtualbox.html.html" class="link-modul">Konfigurasi Mikrotik di VirtualBox</a></li><br>
+<li>Mikrotik sebagai Gateway</li><br>
 </ol>
 </div>
 
-<a href="moduls.html">⬅ Kembali ke Halaman Sebelumnya</a>
+<a href="moduls.html" class="btn-kembali">
+← Kembali ke Halaman Sebelumnya
+</a>
+
 
 </section>
 </body>
 </html>
-
