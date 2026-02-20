@@ -579,6 +579,65 @@
             }
         }
 
+                    /* Certification Section */
+            .certification-section {
+                padding: 80px 20px;
+                background: #f8f9fa;
+                text-align: center;
+        }
+
+            .section-title {
+                font-size: 30px;
+                margin-bottom: 10px;
+        }
+
+            .section-subtitle {
+                font-size: 15px;
+                color: #555;
+                margin-bottom: 50px;
+        }       
+
+            .certification-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+        }
+
+                /* Card */
+            .cert-card {
+                background: white;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+                transition: 0.3s ease;
+        }
+
+            .cert-card:hover {
+                transform: translateY(-8px);
+        }
+
+                /* Image */
+            .cert-image {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                display: block;
+        }
+
+                /* Info */
+            .cert-info {
+                padding: 20px;
+        }
+
+            .cert-info h3 {
+                margin-bottom: 5px;
+        }
+
+            .cert-info p {
+                color: #666;
+                font-size: 14px;
+        }
+     
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -769,6 +828,42 @@
                                 <p>Sementara itu, bersama Pak Syahrul, suasana pembelajaran cukup santai dan diselingi candaan, namun tetap menuntut kedisiplinan, terutama dalam hal manajemen waktu.</p>
                                 </div>
 
+                          <!-- CERTIFICATION SECTION -->
+<section class="certification-section">
+    <div class="container">
+        <h2 class="section-title">Sertifikat</h2>
+        <p class="section-subtitle">
+            Sertifikat resmi yang telah saya peroleh dalam bidang jaringan dan sistem.
+        </p>
+
+        <div class="certification-grid">
+
+            <!-- Sertifikat 1 -->
+            <div class="cert-card">
+               <img src="images11/network-fundamental.jpeg" 
+                alt="Network Fundamental Certificate"
+                class="cert-image">
+                <div class="cert-info">
+                    <h3>Network Fundamental</h3>
+                    <p>AgunaCourse</p>
+                </div>
+            </div>
+
+            <!-- Sertifikat 2 -->
+            <div class="cert-card">
+                <img src="images11/simulasi-jaringan.jpeg" 
+                 alt="Simulasi Jaringan Certificate"
+                 class="cert-image">
+                <div class="cert-info">
+                    <h3>Simulasi Jaringan</h3>
+                    <p>AgunaCourse</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+                          
    <body>
       <button id="menuToggle4" class="menu-toggle" aria-label="toggle menu">☰</button>
 
@@ -817,5 +912,6 @@
   <script src="script.js"></script>
 
 </body>                             
+
 
 
