@@ -64,6 +64,223 @@ font-weight:600;
 .link-kembali:hover{
 background:#1f47c7;
 }
+
+/* Section Background */
+.founder-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(135deg, #f4f6f9, #e9eef5);
+}
+
+/* Card Container */
+.founder-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    max-width: 850px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    transition: 0.4s ease;
+}
+
+.founder-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Image Styling */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    display: block;
+    transition: 0.4s ease;
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Decorative Accent */
+.image-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+}
+
+/* Text Info */
+.founder-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.founder-info h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.founder-info p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Section Background */
+.origin-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f4f6f9, #e9eef5);
+}
+
+/* Layout */
+.origin-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Text Area */
+.origin-text {
+    flex: 1 1 450px;
+}
+
+.origin-text h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.origin-text p {
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Highlight Info Box */
+.origin-highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #ffffff;
+    padding: 15px 20px;
+    border-left: 4px solid #0077cc;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    margin-bottom: 15px;
+}
+
+.source-text {
+    color: #777;
+    font-size: 13px;
+}
+
+/* Image Area */
+.origin-image {
+    flex: 1 1 450px;
+}
+
+.origin-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: 0.4s ease;
+}
+
+.origin-image img:hover {
+    transform: scale(1.03);
+}
+
+.cert-path-section {
+    padding: 90px 20px;
+    background: linear-gradient(135deg, #f4f6f9, #e9eef5);
+}
+
+.cert-path-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.cert-path-text {
+    flex: 1 1 500px;
+}
+
+.cert-path-text h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.cert-path-text p {
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Level Boxes */
+.path-level {
+    padding: 18px 22px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.path-level.basic {
+    border-left: 5px solid #0077cc;
+}
+
+.path-level.advanced {
+    border-left: 5px solid #ff6a00;
+}
+
+.path-level h3 {
+    margin-bottom: 5px;
+}
+
+/* Notes */
+.path-note {
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    font-size: 14px;
+    color: #555;
+}
+
+/* Image */
+.cert-path-image {
+    flex: 1 1 500px;
+}
+
+.cert-path-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    transition: 0.4s ease;
+}
+
+.cert-path-image img:hover {
+    transform: scale(1.03);
+}
+
+.cert-path-section {
+    padding-top: 40px;
+}
+
+.cert-path-section h2 {
+    margin-top: 0;
+}
+
  .grid {
          display: grid;
          gap: 16px;
@@ -80,13 +297,56 @@ background:#1f47c7;
 <h1>Introduction / Pengenalan MikroTik</h1>
 
 <h2>1. Penemu MikroTik</h2>
-<center><img src="images11/Mikrotikfounder.jpg" width="300" height="300" alt="owner mikrotik"></center>
+<section class="founder-section">
+    <div class="founder-card">
+
+        <div class="image-wrapper">
+            <img src="images11/mikrotikfounder.jpg" alt="Pendiri MikroTik">
+        </div>
+
+        <div class="founder-info">
+            <h3>John Trully & Arnis Riekstins</h3>
+            <p>
+                Pendiri MikroTik yang mengembangkan RouterOS dan perangkat jaringan 
+                yang kini digunakan secara global.
+            </p>
+        </div>
+
+    </div>
+</section>
 <p>MikroTik didirikan pada tahun 1996 oleh John Trully dan Arnis Riekstiņš. Awalnya mereka mengembangkan solusi jaringan berbasis Linux untuk menyediakan akses internet wireless yang efisien dan terjangkau di Latvia.</p>
 <p>Seiring perkembangan teknologi, MikroTik tidak hanya mengembangkan sistem operasi jaringan, tetapi juga memproduksi perangkat keras router sendiri yang kini digunakan secara global.</p>
 
 <h2>2. Asal Negara MikroTik</h2>
-<img src="images11/peta-latvia.png" width="600" height="350" alt="peta lokasi latvia"><br>
-<p>(sumber gambar:Modul MTCNA-2025-Citraweb)</p>
+<section class="origin-section">
+    <div class="origin-container">
+        <div class="origin-text">
+            <h2>Asal Negara MikroTik</h2>
+            <p>
+                MikroTik berasal dari <strong>Latvia</strong>, sebuah negara di kawasan 
+                Baltik, Eropa Utara. Kantor pusat perusahaan ini berada di kota 
+                <strong>Riga</strong>. Meskipun berasal dari negara kecil, produk 
+                MikroTik telah digunakan secara global di berbagai belahan dunia.
+            </p>
+
+            <div class="origin-highlight">
+                <span>📍 Negara: Latvia</span>
+                <span>🏙️ Kota: Riga</span>
+                <span>🌍 Region: Eropa Utara</span>
+            </div>
+
+            <small class="source-text">
+                Sumber gambar: Modul MTCNA-2025-Citraweb
+            </small>
+        </div>
+
+        <div class="origin-image">
+            <img src="images11/peta-latvia.png" alt="Lokasi Latvia di Peta Dunia">
+        </div>
+
+    </div>
+
+</section>
 <p>MikroTik berasal dari Latvia, negara di kawasan Baltik, Eropa Utara. Kantor pusatnya berada di kota Riga. Walaupun berasal dari negara kecil, produk MikroTik telah digunakan di berbagai negara di dunia.</p>
 
 <h2>3. Arti dan Filosofi MikroTik</h2>
@@ -116,26 +376,40 @@ background:#1f47c7;
 </ul>
 
 <h2>5. Path Sertifikasi MikroTik</h2>
-<img src="images11/sertifikat.png" width="650" height="450" alt="sertifikat"><br>
-<p>(sumber gambar:Modul MTCNA-2025-Citraweb)</p>
-<h3>MTCNA</h3>
-<p>Sertifikasi dasar yang membahas IP Address, DHCP, NAT, Firewall, dan Wireless dasar.</p>
+<section class="cert-path-section">
 
-<h3>MTCRE</h3>
-<p>Fokus pada routing lanjutan dan troubleshooting jaringan.</p>
+    <div class="cert-path-container">
 
-<h3>MTCWE</h3>
-<p>Fokus pada teknologi wireless dan optimasi jaringan nirkabel.</p>
+        <div class="cert-path-text">
+            <h2>Path Sertifikasi MikroTik</h2>
+            <p>
+                Struktur sertifikasi MikroTik dimulai dari level dasar hingga
+                tingkat lanjutan yang lebih spesifik sesuai bidang jaringan.
+            </p>
 
-<h3>MTCTCE</h3>
-<p>Fokus pada manajemen bandwidth dan traffic control.</p>
+            <div class="path-level basic">
+                <h3>Basic Level</h3>
+                <p><strong>MTCNA</strong> – Fondasi utama sebelum mengambil sertifikasi lanjutan.</p>
+            </div>
 
-<h3>MTCUME</h3>
-<p>Fokus pada manajemen user seperti hotspot dan PPP.</p>
+            <div class="path-level advanced">
+                <h3>Advanced Level</h3>
+                <p>MTCRE, MTCWE, MTCTCE, MTCSE, MTCUME, MTCIPv6E, dll.</p>
+            </div>
 
-<h3>MTCINE</h3>
-<p>Level tertinggi yang membahas BGP dan desain jaringan skala besar.</p>
+            <div class="path-note">
+                <p>• Untuk mengikuti kelas Advanced, wajib lulus MTCNA.</p>
+                <p>• Khusus MTCINE, wajib lulus MTCNA dan MTCRE.</p>
+            </div>
+        </div>
 
+        <div class="cert-path-image">
+            <img src="images11/sertifikat.png" alt="Path Sertifikasi MikroTik">
+        </div>
+
+    </div>
+
+</section>
 <div class="footer">
 Disusun oleh Rizky Alfarizi<br>
 <span id="tanggal"></span>
@@ -152,6 +426,4 @@ document.getElementById("tanggal").innerText =
 </script>
 
 </body>
-
 </html>
-
