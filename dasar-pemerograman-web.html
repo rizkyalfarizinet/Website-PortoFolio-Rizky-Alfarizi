@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dasar HTML - Portfolio Rizky</title>
+
+<!-- FAVICON -->
+<link rel="icon" href="images11/favicon.ico">
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header h1 {
+    font-size: 38px;
+}
+
+header p {
+    opacity: 0.9;
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+    color: #1e40af;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin-top: 15px;
+}
+
+/* CODE BLOCK */
+pre {
+    background: #111;
+    color: #0f0;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+/* LIST */
+ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/* IMAGE PLACEHOLDER */
+.image-box {
+    margin-top: 15px;
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    color: #777;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1e3a8a;
+    color: white;
+    margin-top: 30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Dasar HTML</h1>
+    <p>Pemahaman Struktur & Fondasi Website</p>
+</header>
+
+<div class="container">
+
+<!-- 1 -->
+<div class="card">
+    <h2>1. Pengertian HTML</h2>
+    <p>
+        HTML (HyperText Markup Language) adalah bahasa dasar untuk membuat struktur halaman web.
+        HTML digunakan untuk menyusun konten seperti teks, gambar, dan link agar bisa ditampilkan di browser.
+    </p>
+
+    <div class="image-box">
+        <img src="images11/dasar-html.png"  width="550" height="300" alt="Foto SACI">
+    </div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+    <h2>2. Struktur Dasar HTML</h2>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Judul&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+Konten Website
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+    <p>
+        Struktur ini adalah kerangka utama dalam setiap halaman web.
+    </p>
+</div>
+
+<!-- 3 -->
+<div class="card">
+    <h2>3. Elemen HTML</h2>
+
+    <ul>
+        <li>Heading (h1 - h6)</li>
+        <li>Paragraf (p)</li>
+        <li>Link (a)</li>
+        <li>Gambar (img)</li>
+    </ul>
+
+<pre>
+&lt;h1&gt;Judul&lt;/h1&gt;
+&lt;p&gt;Paragraf&lt;/p&gt;
+&lt;a href="#"&gt;Link&lt;/a&gt;
+</pre>
+
+</div>
+
+<!-- 4 -->
+<div class="card">
+    <h2>4. Atribut HTML</h2>
+
+    <p>Atribut memberikan informasi tambahan pada elemen HTML.</p>
+
+<pre>
+&lt;a href="https://google.com"&gt;Klik disini&lt;/a&gt;
+</pre>
+
+</div>
+
+<!-- 5 -->
+<div class="card">
+    <h2>5. Elemen Penting HTML</h2>
+
+    <h3>Section & Div</h3>
+<pre>
+&lt;section&gt;Konten&lt;/section&gt;
+&lt;div&gt;Konten&lt;/div&gt;
+</pre>
+
+    <h3>List</h3>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+    <h3>Strong & Em</h3>
+<pre>
+&lt;strong&gt;Penting&lt;/strong&gt;
+&lt;em&gt;Penekanan&lt;/em&gt;
+</pre>
+
+</div>
+
+<!-- 6 -->
+<div class="card">
+    <h2>6. Media HTML</h2>
+
+    <h3>Gambar</h3>
+<pre>
+&lt;img src="gambar.jpg" alt="deskripsi"&gt;
+</pre>
+
+    <h3>Audio</h3>
+<pre>
+&lt;audio src="audio.mp3" controls&gt;&lt;/audio&gt;
+</pre>
+
+    <h3>Video</h3>
+<pre>
+&lt;video src="video.mp4" controls&gt;&lt;/video&gt;
+</pre>
+
+</div>
+
+<!-- 7 -->
+<div class="card">
+    <h2>7. Link & Navigasi</h2>
+
+<pre>
+&lt;a href="halaman.html"&gt;Pindah Halaman&lt;/a&gt;
+</pre>
+
+    <p>
+        Link digunakan untuk berpindah antar halaman dalam website.
+    </p>
+</div>
+
+<!-- 8 -->
+<div class="card">
+    <h2>8. Path (Lokasi File)</h2>
+
+    <p><b>Relative Path:</b></p>
+<pre>./images11/gambar.png</pre>
+
+    <p><b>Absolute Path:</b></p>
+<pre>https://example.com/image.png</pre>
+
+</div>
+
+<!-- 9 -->
+<div class="card">
+    <h2>9. SEO & Meta Tag</h2>
+
+<pre>
+&lt;meta name="description" content="Belajar HTML"&gt;
+</pre>
+
+    <p>
+        Meta tag membantu mesin pencari memahami isi website.
+    </p>
+</div>
+
+<!-- 10 -->
+<div class="card">
+    <h2>10. Multimedia & Embed</h2>
+
+<pre>
+&lt;iframe src="https://example.com"&gt;&lt;/iframe&gt;
+</pre>
+
+    <p>
+        Digunakan untuk menampilkan konten dari website lain seperti video YouTube.
+    </p>
+</div>
+<div>
+    <a href="pemrogramanweb.html">⬅ Kembali ke Halaman Sebelumnya</a>
+</div>
+
+<footer>
+    <p>© 2026 Rizky - Portfolio Web Developer</p>
+</footer>
+
+</body>
+</html>
