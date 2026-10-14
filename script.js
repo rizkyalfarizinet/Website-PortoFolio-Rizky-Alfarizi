@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // ========================================
     // 1. MENU NAVIGASI MOBILE
-    // ========================================
+    // =======================================
     const menuToggle = document.querySelector(".menu-toggle");
     const navMenu = document.querySelector(".nav-menu");
 
