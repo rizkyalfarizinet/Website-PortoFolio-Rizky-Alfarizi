@@ -572,15 +572,16 @@
             }
         }
 
-                    
+        
 /* ========================================
-   CERTIFICATES
-   Compatible with existing and newer HTML class names
+   CERTIFICATES — DARK PROFESSIONAL THEME
 ======================================== */
+
 .certification-section,
 .certificates-section {
     padding: 68px 20px;
-    background: var(--background-alt);
+    background: #111827;
+    color: #e5e7eb;
     text-align: center;
     scroll-margin-top: 105px;
 }
@@ -593,6 +594,7 @@
 
 .certification-section .section-title,
 .certificates-section .section-title {
+    color: #f3f4f6;
     font-size: clamp(1.65rem, 2.6vw, 2rem);
     line-height: 1.3;
     margin: 0 0 12px;
@@ -601,78 +603,78 @@
 .section-subtitle {
     max-width: 720px;
     margin: 0 auto 34px;
-    color: var(--text-light);
+    color: #9caec2;
     font-size: 0.95rem;
     line-height: 1.7;
 }
 
-/* Featured / prioritized certificate */
+/* Sertifikat utama */
 .certificate-featured {
     width: 100%;
     max-width: 880px;
     margin: 0 auto 34px;
     overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: var(--shadow);
+    border: 1px solid #374151;
+    border-radius: 14px;
+    background: #1f2937;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .featured-image {
-    padding: 14px;
-    background: #e9eef2;
+    padding: 18px;
+    background: #182233;
 }
 
 .featured-image img {
     display: block;
     width: 100%;
-    max-height: 460px;
+    max-height: 520px;
     height: auto;
     margin: 0 auto;
     object-fit: contain;
     cursor: zoom-in;
 }
 
-/* Supporting certificate grid */
+/* Sertifikat pendukung */
 .certification-grid,
 .certificates-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
     width: 100%;
-    align-items: stretch;
+    align-items: start;
 }
 
 .certificate-card,
 .cert-card {
     min-width: 0;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 1px solid #374151;
     border-radius: 12px;
-    background: #fff;
-    box-shadow: var(--shadow);
+    background: #1f2937;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
     text-align: center;
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    transition: border-color 0.2s ease;
 }
 
 .certificate-card:hover,
 .cert-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 24px rgba(23, 35, 47, 0.12);
+    border-color: #64748b;
 }
 
-/* Image containers support both .certificate-image and .cert-image */
+/* Gambar sertifikat tampil utuh */
 .certificate-image,
 .cert-image:not(img) {
     width: 100%;
-    height: 250px;
-    padding: 12px;
+    min-height: 200px;
+    height: auto;
+    padding: 14px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: #edf1f4;
+    background: #182233;
 }
 
 .certificate-image img,
@@ -680,20 +682,19 @@
 img.cert-image {
     display: block;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 380px;
     width: auto;
     height: auto;
     object-fit: contain;
+    object-position: center;
     cursor: zoom-in;
 }
 
-/* If .cert-image is the image itself */
 img.cert-image {
-    max-height: 250px;
     margin: 0 auto;
 }
 
-/* Certificate details support old and new names */
+/* Informasi sertifikat */
 .certificate-info,
 .cert-info {
     padding: 17px 16px;
@@ -702,6 +703,7 @@ img.cert-image {
 
 .certificate-info h3,
 .cert-info h3 {
+    color: #e5e7eb;
     margin: 0 0 7px;
     font-size: 1rem;
     line-height: 1.45;
@@ -711,21 +713,21 @@ img.cert-image {
 .certificate-info p,
 .cert-info p {
     margin: 0;
-    color: var(--text-light);
+    color: #9caec2;
     font-size: 0.9rem;
     line-height: 1.6;
 }
 
-/* Image preview modal created by certificates.js */
+/* Pratinjau gambar */
 .certificate-modal {
     position: fixed;
     inset: 0;
-    z-index: 2000;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
-    background: rgba(15, 24, 33, 0.90);
+    padding: 20px;
+    background: rgba(3, 7, 18, 0.94);
 }
 
 .certificate-modal[hidden] {
@@ -734,13 +736,12 @@ img.cert-image {
 
 .certificate-modal img {
     display: block;
-    max-width: 95%;
+    max-width: 95vw;
     max-height: 88vh;
     width: auto;
     height: auto;
     object-fit: contain;
-    border-radius: 5px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+    border-radius: 6px;
 }
 
 .certificate-modal-close {
@@ -749,18 +750,43 @@ img.cert-image {
     right: 20px;
     width: 44px;
     height: 44px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border: 1px solid #4b5563;
     border-radius: 50%;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.12);
+    color: #f3f4f6;
+    background: #1f2937;
     font-size: 28px;
-    line-height: 1;
     cursor: pointer;
 }
 
 .certificate-modal-close:hover {
-    background: rgba(255, 255, 255, 0.22);
+    background: #374151;
 }
+
+/* Tampilan HP */
+@media (max-width: 650px) {
+    .certification-section,
+    .certificates-section {
+        padding: 48px 16px;
+    }
+
+    .certification-grid,
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .featured-image {
+        padding: 10px;
+    }
+
+    .certificate-image img,
+    .cert-image img,
+    img.cert-image {
+        max-height: 300px;
+    }
+}
+            
+
 
 /* Tablet */
 @media (max-width: 900px) {
