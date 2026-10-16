@@ -148,7 +148,22 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .project-meta span:last-child { color: #98a9b8; }
 .project-body p { min-height: 76px; margin: 0 0 13px; }
 .center-action { margin-top: 34px; text-align: center; }
-.album-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+.album-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: start !important;
+}
+.album-grid .album-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: start !important;
+  min-width: 0 !important;
+}
+.album-grid .album-card > img {
+  width: 100% !important;
+  height: 260px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
 .album-card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 17px; background: white; }
 .album-card > img { display: block; width: 100%; height: 220px; object-fit: cover; background: #eaf1f7; }
 .album-placeholder { display: none; height: 220px; place-content: center; justify-items: center; gap: 13px; padding: 20px; color: #6b8397; background: linear-gradient(135deg, #eaf3fa, #dceaf5); text-align: center; font-size: .83rem; }
@@ -250,55 +265,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
   
-.album-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  align-items: start;
-}
 
-.album-card {
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid #dce5ef;
-  border-radius: 18px;
   background: #fff;
-}
-
-.album-card > img {
-  display: block;
-  width: 100%;
-  height: 260px;
-  object-fit: contain;
-  object-position: center;
-  background: #f8fafc;
-}
-
-.album-caption {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 18px 20px 20px;
-}
-
-.album-caption strong {
-  font-size: 18px;
-  color: #102a43;
-}
-
-.album-caption span {
-  line-height: 1.6;
-  color: #526b84;
-}
-
-@media (max-width: 640px) {
-  .album-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .album-card > img {
-    height: 220px;
-  }
 }
 
 </style>
